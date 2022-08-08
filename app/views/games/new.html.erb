@@ -13,3 +13,5 @@
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
   <%= hidden_field_tag :letters, @letters %>
 </form>
+<p>Grand Score: <%= session[:score] %></p>
+<p>Try: <%= session[:try] %></p>
