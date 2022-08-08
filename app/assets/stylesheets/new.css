@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  width: 300px;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.letter {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  background-color: #ffc108 ;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 2px;
+}
+
+.form-container {
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#title {
+  text-align: center;
+  font-size: 60px;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+}
