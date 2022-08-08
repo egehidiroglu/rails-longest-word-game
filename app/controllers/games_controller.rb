@@ -34,16 +34,15 @@ class GamesController < ApplicationController
 
   def result(grid, english, answer, letters)
     if !grid
-      result = "Sorry but #{answer} can't be built out of #{letters}"
-      score = 0
+      @result = "Sorry but #{answer} can't be built out of #{letters}"
+      @score = 0
     elsif grid && !english
-      result = "Sorry but #{answer} does not seem to be a valid English word..."
-      score = 0
+      @result = "Sorry but #{answer} does not seem to be a valid English word..."
+      @score = 0
     elsif grid && english
-      result = "Congratulations! #{answer} is a valid English word!"
-      score = answer.length
+      @result = "Congratulations! #{answer} is a valid English word!"
+      @score = answer.length
     end
-    [result, score]
   end
 
   def score
@@ -55,8 +54,7 @@ class GamesController < ApplicationController
     url = "https://wagon-dictionary.herokuapp.com/#{@answer}"
     response_serialized = URI.open(url).read
     @english = JSON.parse(response_serialized)['found']
-    @result = result(@grid, @english, @answer, @letters)[0]
-    session[:score] += result(@grid, @english, @answer, @letters)[1]
-    session[:try] += 1
+    result(@grid, @english, @answer, @letters)
+    session[:score] = @score
   end
 end

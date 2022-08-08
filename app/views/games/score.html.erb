@@ -1,3 +1,6 @@
-<h1>Result</h1>
-<p><%= @result %></p>
-<%= link_to 'Play Again', '/new' %>
+<div class="container card">
+  <h1>Result</h1>
+  <p class="card-text"><%= @result %></p>
+  <p class="card-text">Score: <%= session[:score] %></p>
+  <%= link_to 'Play Again', '/new' %>
+</div>
